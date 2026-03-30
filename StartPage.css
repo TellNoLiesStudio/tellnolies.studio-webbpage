@@ -1,0 +1,252 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+#StartSection, #AboutUsSection, #ContactUsSection, #CurrentProjectSection{
+    /* Ensure the section takes the full viewport height */
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    display: none;
+}
+#StartSection {
+    display: flex;
+}
+
+
+.backgroundImage {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Move the container to the absolute back */
+}
+
+/* Style for each layer image */
+.backgroundImage .layer {
+    position: absolute; /* Position each image absolutely within .backgroundImage */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the entire container */
+    pointer-events: none; /* Ensure images don't capture mouse events */
+    transform: scale(1.1); /* Scale the image slightly larger than the container */
+    transform-origin: center; /* Ensure scale transformation originates from the center */
+}
+
+.menuBox {
+    position: relative;
+    height: 100%;
+    width: 28%;
+    background-color: rgb(30, 30, 30);
+    padding: 0 1% 0 1%;
+}
+
+.pictureBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 70%;
+    /*background-color: rgb(0, 143, 190);*/
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    height: 60%;
+    /*background-color: lightgray;*/
+}
+
+.showcase {
+    margin-top: auto;         /* push showcase to the bottom */
+    width: 100%;
+    height: 34%;              /* or adjust as needed */
+    background-color: white;
+}
+
+.button
+{
+    width: 100%;
+    /*background-color: deepskyblue;*/
+    border: none;
+    color: white;
+
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 3vh 0;
+    cursor: pointer;
+
+    font-size: 3vw;
+}
+.bottomButton{
+    position: absolute; /* Absolute positioning within the box */
+    bottom: 0; /* Distance from the bottom of the box */
+    left: 50%; /* Center horizontally within the box */
+    transform: translateX(-50%);
+    width: 100%; /* Your existing styling */
+    /*background-color: deepskyblue;*/
+    border: none;
+    color: white;
+    padding: 5% 0;
+
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0; /* Override margin to avoid affecting the absolute position */
+    cursor: pointer;
+    font-size: 3vw;
+}
+
+.button:hover, .bottomButton:hover {
+    /*background-color: blue;*/
+    color: black;
+}
+
+.logoText {
+    width: 90%;
+    height: 400px;
+    margin-bottom: 10%;
+    background-image: url("Images/LogoTextSnake.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.socialMediaContainer{
+    position: absolute;
+    width: 70%;
+    height: 70px;
+    /*background-color: darkgray;*/
+    margin: 0;
+    bottom: 1%;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    padding-right: 10px; /* Optional: add some padding to the right */
+}
+
+/* Left icon container */
+.constructionIcon img {
+    position: absolute;
+    width: 70%;
+    height: 70px;
+    /*background-color: darkgray;*/
+    margin: 0;
+    bottom: 1%;
+    display: flex;
+ /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    padding-left: 10px; /* Optional: add some padding to the right */
+}
+
+
+.socialButton {
+    display: block;
+    width: 100px;
+    height: 100px;
+    /*background-color: rgb(30, 30, 30);*/
+    margin: 0.5%;
+    position: relative;
+    top: 50%; /* Move the button to the vertical center */
+    transform: translateY(-50%); /* Adjust for the true vertical center */
+    display: flex; /* Use Flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    cursor: pointer;
+}
+
+.socialButton img 
+{
+    max-width: 80%;
+    height: auto; 
+    transition: opacity 0.3s;
+}
+
+.socialButton:hover img.default {
+    opacity: 0;
+}
+
+.socialButton img.hover {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%; /* Ensure the image scales within the button */
+    height: auto; /* Maintain the aspect ratio */
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+.socialButton:hover img.hover {
+    opacity: 1;
+}
+
+
+.centerBox {
+    width: 90%;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.mailBox {
+    height: 20%;
+    width: 100%;
+    background-color: white;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.discordBox {
+    height: 70%;
+    width: 100%;
+    background-color: white;
+    margin: auto;
+
+}
+
+.whideContentBox {
+    width: 100%;
+    height: 45%;
+    background-color: gray;
+    margin: auto;
+    margin-bottom: 20px;
+
+}
+
+.verticlaColumn{
+    height: 100%;
+    width: 50%;
+    color: darkgray;
+    padding: 10px;
+}
+
+.menuText {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 3vw;       /* same as your buttons */
+    margin: 3vh 0;
+    padding: 1% 0;
+    cursor: default;      /* not clickable */
+}
