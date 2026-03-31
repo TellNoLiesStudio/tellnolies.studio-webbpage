@@ -2,16 +2,15 @@ body, html{
     height: 100%;
     width: 100%;
     margin: 0;
-    list-style: none;
     padding: 0;
-    margin: 0;
 
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row; /* left-right layout */
+    overflow: hidden;    /* prevent scrolling */
     
 }
 
-#StartSection, #AboutUsSection, #ContactUsSection, #CurrentProjectSection{
+#StartSection, #AboutUsSection, #NewsSection{
     /* Ensure the section takes the full viewport height */
     height: 100%;
     width: 100%;
@@ -25,6 +24,12 @@ body, html{
 }
 #StartSection {
     display: flex;
+    flex-direction: column;
+    justify-content: center; /* center vertically */
+    align-items: center;     /* center horizontally */
+    width: 66%;          /* left 2/3 */
+    height: 100%;
+    order: 1; /* appears before menuBox visually */
 }
 
 
@@ -51,19 +56,53 @@ body, html{
 }
 
 .menuBox {
-    position: relative;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 33.333%;
     height: 100%;
-    width: 28%;
-    background-color: rgb(30, 30, 30);
-    padding: 0 1% 0 1%;
+    background-color: rgb(30,30,30);
+    padding: 1%;
+    z-index: 10;
+    transform: translateX(0); /* start at 0 */
+    transition: transform 0.5s ease; 
+}
+.menuBox.hidden {
+     transform: translateX(100%); /* slide out to right */
+}
+
+.menuToggleButton {
+    position: fixed;
+    top: 10%;             /* vertically centered */
+    right: 10px;          /* 10px from right edge */
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgb(30,30,30);
+    color: white;
+    font-size: 2em;
+    display: none;        /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;          /* above everything */
+    border-radius: 10px;
+    text-align: center;
+    line-height: 50px;
+    transition: background 0.3s;
+}
+
+.menuToggleButton:hover {
+    background-color: rgb(50,50,50);
 }
 
 .pictureBox {
+	position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 70%;
+    width: 100%;
     /*background-color: rgb(0, 143, 190);*/
 }
 
@@ -71,7 +110,18 @@ body, html{
     position: relative;
     width: 100%;
     height: 60%;
-    /*background-color: lightgray;*/
+    
+    display: flex;             /* enable flexbox */
+    flex-direction: column;    /* stack items vertically */
+  /* vertical centering */
+
+    padding-right: 2%;         /* optional: some space from the edge */
+}
+.introText {
+    color: white;
+    font-size: 2vw;
+    margin: 1em 0;
+    text-align: center;  /* centers the text */
 }
 
 .showcase {
@@ -83,19 +133,43 @@ body, html{
 
 .button
 {
-    width: 100%;
-    /*background-color: deepskyblue;*/
+    width: auto;               /* let button size fit content */
+    max-width: 90%;            /* optional: prevent it from going too far */
     border: none;
     color: white;
-
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 3vh 0;
-    cursor: pointer;
-
     font-size: 3vw;
+    margin: 1vh 0;
+    cursor: pointer;
 }
+
+.sideBySideButtons {
+    display: flex;              /* put buttons in a row */
+    justify-content: center;    /* center the row in the menu box */
+    gap: 10px;                  /* spacing between buttons */
+    margin: 2vh 0;              /* vertical spacing around the row */
+}
+
+.sideBySideButtons .button {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 10px 20px;          /* gives the button some space */
+    font-size: 1.2em;            /* slightly larger text */
+    color: white;                /* text color */
+    border: 2px solid white;     /* the outline */
+    border-radius: 8px;           /* rounded corners */
+    background-color: transparent; /* transparent so outline stands out */
+    transition: all 0.3s ease;    /* smooth hover transition */
+    cursor: pointer;
+}
+
+.sideBySideButtons .button:hover {
+    background-color: white;      /* fill on hover */
+    color: black;                 /* text changes color */
+    transform: scale(1.05);       /* subtle zoom effect */
+}
+
 .bottomButton{
     position: absolute; /* Absolute positioning within the box */
     bottom: 0; /* Distance from the bottom of the box */
@@ -121,9 +195,8 @@ body, html{
 }
 
 .logoText {
-    width: 90%;
+    width: 65%;
     height: 400px;
-    margin-bottom: 10%;
     background-image: url("Images/LogoTextSnake.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -131,46 +204,29 @@ body, html{
 }
 
 .socialMediaContainer{
-    position: absolute;
-    width: 70%;
+
+    width: 100%;
     height: 70px;
-    /*background-color: darkgray;*/
     margin: 0;
-    bottom: 1%;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
-    align-items: center; /* Center items vertically */
-    padding-right: 10px; /* Optional: add some padding to the right */
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+    padding: 0;
 }
 
-/* Left icon container */
-.constructionIcon img {
-    position: absolute;
-    width: 70%;
-    height: 70px;
-    /*background-color: darkgray;*/
-    margin: 0;
-    bottom: 1%;
-    display: flex;
- /* Align items to the right */
-    align-items: center; /* Center items vertically */
-    padding-left: 10px; /* Optional: add some padding to the right */
-}
+
 
 
 .socialButton {
-    display: block;
-    width: 100px;
+     width: 100px;
     height: 100px;
-    /*background-color: rgb(30, 30, 30);*/
-    margin: 0.5%;
-    position: relative;
-    top: 50%; /* Move the button to the vertical center */
-    transform: translateY(-50%); /* Adjust for the true vertical center */
-    display: flex; /* Use Flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    margin: 0 10px;        /* spacing between buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    position: relative;     /* keep relative for hover image positioning */
+
 }
 
 .socialButton img 
@@ -187,13 +243,26 @@ body, html{
 .socialButton img.hover {
     position: absolute;
     opacity: 0;
-    max-width: 80%; /* Ensure the image scales within the button */
-    height: auto; /* Maintain the aspect ratio */
-    transition: opacity 0.3s; /* Smooth transition */
+    max-width: 80%;
+    height: auto;
 }
 
 .socialButton:hover img.hover {
     opacity: 1;
+}
+
+/* Left icon container */
+.constructionIcon img {
+    position: absolute;
+    width: 70%;
+    height: 70px;
+    /*background-color: darkgray;*/
+    margin: 0;
+    bottom: 1%;
+    display: flex;
+ /* Align items to the right */
+    align-items: center; /* Center items vertically */
+    padding-left: 10px; /* Optional: add some padding to the right */
 }
 
 
