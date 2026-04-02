@@ -36,7 +36,7 @@
 	
 	<div class="menuBox">
 		<div class="menu">
-			<div style="width: 100px; height: 100px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+			<div style="width: 120px; height: 120px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
 				<img src="Images/TellNoLies_Logo_white.png" alt="Logo" style="max-width: 90%; max-height: 90%;">
 			</div>
 			
@@ -62,7 +62,7 @@
 				</a>
             </div>
 
-			<a href="https://store.steampowered.com/app/3586770/Desktop_Dragon/" class="bottomButton" target="_blank" rel="noopener noreferrer">- Current project!</a>
+			<a href="https://store.steampowered.com/app/3586770/Desktop_Dragon/" class="bottomButton" target="_blank" rel="noopener noreferrer">Desktop Dragon Steam Page!</a>
 		</div>
 		<div class="showcase">
 			<iframe width="100%" height="100%" src="https://www.youtube.com/embed/0FSDke4OUo4?si=fNcZ3yUUa-zNpkQw&autoplay=1&mute=1" frameborder="0" allowfullscreen allow="autoplay"></iframe>
@@ -86,18 +86,37 @@
     <!-- Here is section three-->
     <div id="NewsSection" class="page-section">
         <div class="centerBox">
-            <div class=" verticlaColumn" style="width: 30%;">
-                <div class="mailBox"></div>
-                <div class="discordBox">
-					<div class="constructionIcon">
-		<img src="Images/UnderConstruction.png" alt="Under Construction" style="width: 100px; height: 100px;">
-	</div>
+            <div class="newsBox">
+				<div class="newsHeader">
+					<h3>Desktop Dragon Steam Page is Live!</h3>
+					<a href="https://store.steampowered.com/app/3586770/Desktop_Dragon/" class="newsButton" target="_blank">To Steam</a>
 				</div>
-            </div>
-            <div class="verticlaColumn" style="width: 70%;">
-                <div class="whideContentBox"></div>
-                <div class="whideContentBox"></div>
-            </div>
+				<div class="newsBody">
+					<p>Desktop Dragon is the cosy on-screen adventure. Adopt and raise your own digital companion that will liven up your day to day life. Explore the relaxing minigames by yourself, or invite a friend to play along.</p>
+				</div>
+			</div>
+
+			<div class="newsBox">
+				<div class="newsHeader">
+					<h3>We’re attending Nordic Games Conference</h3>
+					<!--<a href="#" class="newsButton" target="_blank">Details</a>-->
+				</div>
+				<div class="newsBody">
+					<p>We will be attending Nordic Games Conference May 16-19th. Find Elsy Lust on Meet To Match or catch us in the building!</p>
+					<p>We will be talking to publishers and investors; hoping to build our studio stronger!</p>
+				</div>
+			</div>
+			
+			<div class="newsBox">
+				<div class="newsHeader">
+					<h3>Join our Discord</h3>
+					<a href="https://discord.com/invite/7M9KZndhWm" class="newsButton" target="_blank">Join</a>
+				</div>
+				<div class="newsBody">
+					<p>Come hang out with the community and get dev updates.</p>
+					<p>Get perks like voteing on what dragon will join us next! And the oppurtunity to become a playtester, adopting your dragon pre release!</p>
+				</div>
+			</div>
         </div>
     </div>
 
@@ -163,8 +182,23 @@
         .catch(() => {
             alert("Failed to copy email. Please copy manually: " + email);
         });
-}
+	}
 	
-	
+	const boxes = document.querySelectorAll('.newsBox');
+
+	boxes.forEach((box, index) => {
+		const direction = index % 2 === 0 ? 1 : -1; // even = right, odd = left
+
+		const minTilt = 2;  // minimum degrees
+		const maxExtraTilt = 4; // add 0 → 4 degrees randomly
+
+		const rotate = (minTilt + Math.random() * maxExtraTilt) * direction;
+
+		const x = (50 + Math.random() * 70) * direction; // horizontal offset
+		const y = (Math.random() - 0.5) * 40;           // vertical offset
+
+		box.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
+	});
 </script>
+
 </html>
