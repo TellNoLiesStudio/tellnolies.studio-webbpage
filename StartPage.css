@@ -289,7 +289,7 @@ body, html{
     margin: 3vh 0;
     padding: 1% 0;
     cursor: default;      /* not clickable */
-}
+} 
 
 .newsButton {
     background-color: #4CAF50;
