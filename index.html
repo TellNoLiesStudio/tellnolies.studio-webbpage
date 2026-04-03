@@ -81,7 +81,56 @@
 
     <!-- Here is section two -->
     <div id="AboutUsSection" class="page-section">
+		 <div class="centerBox">
+			<div class="aboutCard left" id="card1">
+				<div class="aboutHeader">
+					<img src="Images/Elsy_headshot.jpg" alt="Name" class="aboutImg">
 
+					<div class="aboutTitle">
+						<h3>Elsy Lust</h3>
+						<p class="role">Founder, CEO, Lead Programmer</p>
+						<p class="role">Espresso Lover <3</p>
+					</div>
+				</div>
+
+				<div class="aboutBody">
+					<p>
+						Programmer, problem solver, and founder with a focus on Unity development. I work across multiple languages (C++, C#, Java, Python and others), but what really drives me is building weird things that force me to think differently.
+					</p>
+					<p> 
+						I’m currently leading Desktop Dragon, a project built around breaking the usual boundaries of how games exist on your screen.
+					</p>
+				</div>
+
+				<div class="contactLinks left">
+					<a href="#" class="aboutButton" onclick="copyEmailElsy()">Mail</a>
+					<a href="https://discord.gg/dFSxVXYZ" class="aboutButton" target="_blank">Discord</a>
+					<a href="https://www.linkedin.com/in/elsy-lust/" class="aboutButton" target="_blank">Linkedin</a>
+				</div>
+			</div>
+			<div class="aboutCard right" id="card2">
+				<div class="aboutHeader">
+					<img src="Images/Jasmine_headshot.jpg" class="aboutImg">
+
+					<div class="aboutTitle">
+						<h3>Jasmine Persson</h3>
+						<p class="role">Founde, Lead Artist</p>
+						<p class="role">Coffee Chugger</p>
+					</div>
+				</div>
+
+				<div class="aboutBody">
+					<p>Lead artist and co-founder, working across 2D and 3D art, animation, and concept design. I specialize in creature design — especially dragons — and I love crafting animations that make creatures feel alive, full of weight, movement, and ✨personality ✨.</p>
+					<p> I’m shaping the look and feel of Desktop Dragon, defining the art, animations, and style for a project that experiments with how games exist and move on screen.</p>
+				</div>
+				
+				<div class="contactLinks right">
+					<a href="#" class="aboutButton" onclick="copyEmailJasmine()">Mail</a>
+					<a href="https://www.artstation.com/jasminepersson6" class="aboutButton" target="_blank">ArtStation</a>
+					<a href="https://www.linkedin.com/in/jasmine-persson-540567291/" class="aboutButton" target="_blank">Linkedin</a>
+				</div>
+			</div>
+		 </div>
     </div>
     <!-- Here is section three-->
     <div id="NewsSection" class="page-section">
@@ -175,6 +224,28 @@
 	
 	function copyEmail() {
     const email = "tellnolies.studio+contact@gmail.com";
+    navigator.clipboard.writeText(email)
+        .then(() => {
+            alert("Email copied to clipboard!");
+        })
+        .catch(() => {
+            alert("Failed to copy email. Please copy manually: " + email);
+        });
+	}
+	
+	function copyEmailElsy() {
+    const email = "elsy.lust@gmail.com";
+    navigator.clipboard.writeText(email)
+        .then(() => {
+            alert("Email copied to clipboard!");
+        })
+        .catch(() => {
+            alert("Failed to copy email. Please copy manually: " + email);
+        });
+	}
+	
+	function copyEmailJasmine() {
+    const email = "persson.jasmine@outlook.com";
     navigator.clipboard.writeText(email)
         .then(() => {
             alert("Email copied to clipboard!");
